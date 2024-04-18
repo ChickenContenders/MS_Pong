@@ -59,16 +59,6 @@ namespace Micro
         //    return Ok(game);
         //}
         // This method will return the GameInfo object with the specified ID
-        [HttpGet("Games/Play/{id}")]
-        public IActionResult GetById(int id)
-        {
-            var game = TheInfo.FirstOrDefault(g => g.Id == id);
-            if (game == null)
-            {
-                return NotFound();
-            }
-            return Ok(game);
-        }
 
         [HttpGet]
         public IEnumerable<GameInfo> Get()
