@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 
 using Microsoft.Extensions.Caching.Distributed;
 using System.Text.Json;
+using GameMicroServer.Services;
 
 namespace Micro
 {
@@ -21,7 +22,6 @@ namespace Micro
         /// </summary>
         private static readonly List<GameInfo> TheInfo = new List<GameInfo>
         {
-
             new GameInfo {
                 Id = 3,
                 Title = "Pong",
@@ -40,6 +40,34 @@ namespace Micro
         public MicroController(ILogger<MicroController> logger)
         {
             _logger = logger;
+        }
+
+        private readonly IGameRepository _gameRepo;
+        //public MicroController(IGameRepository gameRepo)
+        //{
+        //    _gameRepo = gameRepo;
+        //}
+
+        //[HttpGet("game/{id}")]
+        //public IActionResult Get(int id)
+        //{
+        //    var game = _gameRepo.GetByIdAsync(id);
+        //    if (game == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(game);
+        //}
+        // This method will return the GameInfo object with the specified ID
+        [HttpGet("Games/Play/{id}")]
+        public IActionResult GetById(int id)
+        {
+            var game = TheInfo.FirstOrDefault(g => g.Id == id);
+            if (game == null)
+            {
+                return NotFound();
+            }
+            return Ok(game);
         }
 
         [HttpGet]
