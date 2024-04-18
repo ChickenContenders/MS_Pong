@@ -1,15 +1,5 @@
 {
   "profiles": {
-    "GameMicroServer": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "swagger",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:6969;http://localhost:4204"
-    },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
@@ -27,6 +17,16 @@
       },
       "publishAllPorts": true,
       "useSSL": true
+    },
+    "MS_Pong": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:6969;http://localhost:4204"
     }
   },
   "$schema": "https://json.schemastore.org/launchsettings.json",
